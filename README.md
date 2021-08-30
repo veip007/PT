@@ -18,7 +18,6 @@ docker run -d \
   linuxserver/transmission
   ```
 
-  ```
   其中```  -e USER=veip007 \ ```
  ``` -e PASS=github.com \``` 为您的用户名和密码
  WEB访问地址为 IP:9091  防火墙记得端口放行9091和51413
