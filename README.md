@@ -27,7 +27,7 @@ docker run -d \
 ___
  
  # Qbittorrent
- ```
+```
  docker run --restart=always --name qbittorrent -d \
 -p 6881:6881 \
 -p 6881:6881/udp \
@@ -36,6 +36,7 @@ ___
 -v ~/qbittorrent/downloads:/downloads \
 linuxserver/qbittorrent
 ```
+
  qbittorrent地址：http://ip:8080
 用户名：admin
 密码：adminadmin
