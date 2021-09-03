@@ -43,7 +43,18 @@ linuxserver/qbittorrent
 
 ### 注意Qbittorrent 默认端口6881被很多PT站封掉，自己更换端口。同时防火墙放行
  
- 
+___
+
+### 设置自动更新镜像和容器并清除旧镜像
+
+```
+docker run -d \
+    --name watchtower \
+    --restart unless-stopped \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    containrrr/watchtower \
+    --cleanup
+```    
  
 
 其它docker命令：
