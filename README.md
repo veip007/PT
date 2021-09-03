@@ -47,17 +47,42 @@ ___
 
 ### 设置自动更新镜像和容器并清除旧镜像
 
+1.更新所有容器和镜像
 ```
 docker run -d \
     --name watchtower \
     --restart unless-stopped \
     -v /var/run/docker.sock:/var/run/docker.sock \
-    containrrr/watchtower \
-    --cleanup
+    containrrr/watchtower -c\
 ```    
- 
+2.选择性更新，例如只更新 ```Qbittorrent```和```transmission```
+```
+docker run -d \
+    --name watchtower \
+    --restart unless-stopped \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    containrrr/watchtower -c \
+    Qbittorrent transmission
+```
+3.通过列表方式更新容器。
+```
+docker run -d \
+    --name watchtower \
+    --restart unless-stopped \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    containrrr/watchtower -c \
+    $(cat /root/watchtower.list)
+ ```   
+此方法需建立一个列表```vim /root/watchtower.list```
+列表内容为更新镜像的目录，如：
+```
+Qbittorrent
+transmission
+qiandao
+```
 
-其它docker命令：
+
+### 其它docker命令：
 拉镜像
 ```docker pull xxxx/yyyyy:1.0.31```
 
