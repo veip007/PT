@@ -80,7 +80,10 @@ Qbittorrent
 transmission
 qiandao
 ```
-
+### KMS搭建
+```
+docker run -d --name kms -p 1688:1688 quay.io/wjy/kms 
+```
 
 ### 其它docker命令：
 拉镜像
