@@ -27,13 +27,19 @@ ___
  
  # Qbittorrent
 ```
- docker run --restart=always --name qbittorrent -d \
--p 6881:6881 \
--p 6881:6881/udp \
--p 8080:8080 \
--v ~/qbittorrent/config:/config \
--v ~/qbittorrent/downloads:/downloads \
-linuxserver/qbittorrent
+docker run -d \
+  --name=qbittorrent \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Etc/UTC \
+  -e WEBUI_PORT=8080 \
+  -p 8080:8080 \
+  -p 6881:6881 \
+  -p 6881:6881/udp \
+  -v /path/to/appdata/config:/config \
+  -v /path/to/downloads:/downloads \
+  --restart unless-stopped \
+  lscr.io/linuxserver/qbittorrent:latest
 ```
 
  qbittorrent地址：http://ip:8080
